@@ -39,6 +39,42 @@ export default function Navigation() {
 
   return (
     <>
+      {isMobileMenuOpen && (
+        <div
+          className={styles.overlay}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      <ul className={`${styles.navList} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
+      <button
+            className={styles.closeToggle}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            <FaTimes />
+          </button>
+        {navItems.map((item) => (
+          <li key={item.href}>
+            <a
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a
+            href="/Tushar's_Resume.pdf"
+            download
+            className={styles.resumeButton}
+          >
+            Resume
+          </a>
+        </li>
+      </ul>
+
       <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
         <div className={styles.container}>
           <div className={styles.logo}>
@@ -47,41 +83,12 @@ export default function Navigation() {
             </a>
           </div>
 
-          {isMobileMenuOpen && (
-            <div
-              className={styles.overlay}
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-          )}
-
-          <ul className={`${styles.navList} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-            <li>
-              <a
-                href="/Tushar's_Resume.pdf"
-                download
-                className={styles.resumeButton}
-              >
-                Resume
-              </a>
-            </li>
-          </ul>
-
           <button
             className={styles.mobileToggle}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
-            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+            <FaBars />
           </button>
         </div>
       </nav>
