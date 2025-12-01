@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 998;
   background: transparent;
   transition: all 0.3s ease;
   padding: 1rem 0;
@@ -47,12 +47,22 @@
 }
 
 .navList {
+  position: fixed;
+  top: 0;
+  right: 0;
   display: flex;
   list-style: none;
   gap: 2rem;
   align-items: center;
   margin: 0;
-  padding: 0;
+  padding: 0 2rem;
+  height: 80px;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.navList li {
+  pointer-events: auto;
 }
 
 .navList li a {
@@ -113,6 +123,7 @@
 }
 
 .mobileToggle {
+  position: fixed;
   display: none;
   background: none;
   border: none;
@@ -120,6 +131,8 @@
   font-size: 1.5rem;
   cursor: pointer;
   transition: color 0.3s ease;
+  right: 10px;
+  top: 10px;
 }
 
 .scrolled .mobileToggle {
@@ -141,6 +154,7 @@
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
     animation: fadeIn 0.3s ease;
+    z-index: 999;
   }
 
   @keyframes fadeIn {
@@ -155,7 +169,7 @@
 
   .mobileToggle {
     display: block;
-    z-index: 1001;
+    z-index: 1005;
   }
 
   .navList {
@@ -221,6 +235,7 @@
 
   .mobileToggle {
     font-size: 1.3rem;
+    z-index: 1005;
   }
 
   .navList {
