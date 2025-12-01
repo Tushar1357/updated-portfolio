@@ -1,0 +1,237 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: all 0.3s ease;
+  padding: 1rem 0;
+}
+
+.nav.scrolled {
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
+
+.scrolled .logo a {
+  background: linear-gradient(120deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+.logo a:hover {
+  opacity: 0.8;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navList li a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.scrolled .navList li a {
+  color: var(--nav-text);
+}
+
+.navList li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
+}
+
+.navList li a:hover::after {
+  width: 100%;
+}
+
+.resumeButton {
+  padding: 0.6rem 1.5rem !important;
+  border: 2px solid var(--text-primary);
+  border-radius: 50px;
+  color: var(--text-primary) !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.scrolled .resumeButton {
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary) !important;
+}
+
+.resumeButton:hover {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white !important;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 245, 255, 0.4);
+}
+
+.scrolled .resumeButton:hover {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: white !important;
+}
+
+.mobileToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.scrolled .mobileToggle {
+  color: var(--accent-primary);
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 968px) {
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .mobileToggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  .navList {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    max-width: 320px;
+    background: var(--bg-secondary);
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -4px 0 20px var(--shadow-color);
+    padding: 2rem;
+  }
+
+  .navList.mobileOpen {
+    right: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 2.5rem;
+  }
+
+  .navList li {
+    width: 100%;
+  }
+
+  .navList li a {
+    color: var(--text-primary) !important;
+    font-size: 1.2rem;
+    display: block;
+    padding: 0.75rem 1rem;
+  }
+
+  .resumeButton {
+    border-color: var(--accent-primary) !important;
+    color: var(--accent-primary) !important;
+    display: block !important;
+    text-align: center;
+  }
+
+  .resumeButton:hover {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 0.75rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .logo a {
+    font-size: 1.25rem;
+  }
+
+  .mobileToggle {
+    font-size: 1.3rem;
+  }
+
+  .navList {
+    width: 80%;
+    max-width: 280px;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .navList li a {
+    font-size: 1.1rem;
+    padding: 0.6rem 0.875rem;
+  }
+}

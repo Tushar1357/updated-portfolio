@@ -1,33 +1,95 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light Theme - Clean & Professional */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7fafc;
+  --bg-gradient-start: #667eea;
+  --bg-gradient-mid: #764ba2;
+  --bg-gradient-end: #f093fb;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-tertiary: #718096;
+  --accent-primary: #667eea;
+  --accent-secondary: #764ba2;
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --nav-text: #1a202c;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb-start: #667eea;
+  --scrollbar-thumb-end: #764ba2;
+  --selection-bg: #667eea;
+  --selection-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --hero-gradient-start: #667eea;
+  --hero-gradient-mid: #764ba2;
+  --hero-gradient-end: #f093fb;
+  --theme-toggle-bg: rgba(255, 255, 255, 0.95);
+  --theme-toggle-border: rgba(102, 126, 234, 0.3);
+  --theme-toggle-shadow: rgba(102, 126, 234, 0.15);
+  --theme-toggle-shadow-hover: rgba(102, 126, 234, 0.3);
+  --theme-toggle-icon: #667eea;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme='dark'] {
+  --bg-primary: #0a0e27;
+  --bg-secondary: #151932;
+  --bg-gradient-start: #0f2027;
+  --bg-gradient-mid: #203a43;
+  --bg-gradient-end: #2c5364;
+  --text-primary: #f7fafc;
+  --text-secondary: #e2e8f0;
+  --text-tertiary: #cbd5e0;
+  --accent-primary: #00f5ff;
+  --accent-secondary: #8a2be2;
+  --nav-bg: rgba(10, 14, 39, 0.95);
+  --nav-text: #f7fafc;
+  --card-bg: #151932;
+  --card-border: #2d3748;
+  --scrollbar-track: #1a202c;
+  --scrollbar-thumb-start: #00f5ff;
+  --scrollbar-thumb-end: #8a2be2;
+  --selection-bg: #00f5ff;
+  --selection-color: #0f2027;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --hero-gradient-start: #0f2027;
+  --hero-gradient-mid: #203a43;
+  --hero-gradient-end: #2c5364;
+  --theme-toggle-bg: rgba(21, 25, 50, 0.9);
+  --theme-toggle-border: rgba(0, 245, 255, 0.3);
+  --theme-toggle-shadow: rgba(0, 245, 255, 0.2);
+  --theme-toggle-shadow-hover: rgba(0, 245, 255, 0.35);
+  --theme-toggle-icon: #00f5ff;
 }
 
-html,
-body {
+html {
+  scroll-behavior: smooth;
   max-width: 100vw;
   overflow-x: hidden;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+code {
+  font-family: 'Fira Code', 'Courier New', monospace;
 }
 
 a {
@@ -35,8 +97,78 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+main {
+  min-height: 100vh;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--scrollbar-thumb-start), var(--scrollbar-thumb-end));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #00d4ff, #7a1bd2);
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-color);
+}
+
+::-moz-selection {
+  background: var(--selection-bg);
+  color: var(--selection-color);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
   html {
-    color-scheme: dark;
+    font-size: 15px;
   }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Better touch targets for mobile */
+button,
+a {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Prevent text overflow */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Image responsiveness */
+img {
+  max-width: 100%;
+  height: auto;
 }

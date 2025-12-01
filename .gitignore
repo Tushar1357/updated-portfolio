@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local Netlify folder
+.netlify
+.next
+CUSTOMIZATION_GUIDE.md
+.public
+Tushar's_Resume.pdf
