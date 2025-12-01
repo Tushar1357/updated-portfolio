@@ -44,5 +44,5 @@ next-env.d.ts
 .netlify
 .next
 CUSTOMIZATION_GUIDE.md
-/public
+public
 Tushar's_Resume.pdf
