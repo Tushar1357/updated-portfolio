@@ -1,5 +1,3 @@
-'use client';
-
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import styles from './Projects.module.css';
 

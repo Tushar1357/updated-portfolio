@@ -1,5 +1,3 @@
-'use client';
-
 import { FaBriefcase, FaCalendar, FaMapMarkerAlt } from 'react-icons/fa';
 import styles from './Experience.module.css';
 
