@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://tushartuteja.xyz
-
-# Sitemaps
-Sitemap: https://tushartuteja.xyz/sitemap.xml
